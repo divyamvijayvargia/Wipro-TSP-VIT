@@ -17,7 +17,6 @@ export default function Portal() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   
   const {
@@ -73,10 +72,8 @@ export default function Portal() {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
       setFileName(file.name);
-      setUploadedFile(file);
     } else {
       setFileName(null);
-      setUploadedFile(null);
     }
   };
 
@@ -87,7 +84,6 @@ export default function Portal() {
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       const file = e.dataTransfer.files[0];
       setFileName(file.name);
-      setUploadedFile(file);
       
       // Update the file input value for form submission
       if (fileInputRef.current) {
@@ -105,7 +101,6 @@ export default function Portal() {
 
   const removeFile = () => {
     setFileName(null);
-    setUploadedFile(null);
     
     // Clear the file input
     if (fileInputRef.current) {

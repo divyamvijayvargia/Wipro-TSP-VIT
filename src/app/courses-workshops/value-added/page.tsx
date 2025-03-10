@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
-import { FiCode, FiDatabase, FiCloud, FiTrendingUp, FiCpu, FiShield, FiFilter, FiClock, FiUsers, FiStar, FiX, FiCheck } from 'react-icons/fi';
+import { FiCode, FiDatabase, FiCloud, FiTrendingUp, FiCpu, FiShield, FiClock, FiUsers, FiStar, FiX, FiCheck } from 'react-icons/fi';
 import { useState } from 'react';
 
 const courseCategories = ['All', 'Technology', 'Data Science', 'Business', 'Design'];
@@ -237,7 +237,7 @@ export default function ValueAddedCourse() {
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-sm font-medium text-black mb-2">Skills you'll learn:</p>
+                  <p className="text-sm font-medium text-black mb-2">Skills you&apos;ll learn:</p>
                   <div className="flex flex-wrap gap-2">
                     {course.skills.map((skill) => (
                       <span

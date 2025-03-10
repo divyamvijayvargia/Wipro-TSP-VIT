@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
-import { FiUsers, FiCalendar, FiMapPin, FiClock, FiTarget, FiGlobe, FiMessageCircle, FiStar, FiLinkedin, FiMail, FiPhone, FiCheckCircle } from 'react-icons/fi';
+import { FiUsers, FiCalendar, FiMapPin, FiClock, FiTarget, FiGlobe, FiLinkedin, FiPhone, FiCheckCircle } from 'react-icons/fi';
 import { useState } from 'react';
 
 const speakers = [

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
-import { FiSettings, FiCalendar, FiUsers, FiMapPin, FiBriefcase, FiStar, FiMessageCircle, FiCheck, FiX } from 'react-icons/fi';
+import { FiCalendar, FiUsers, FiMapPin, FiBriefcase, FiStar, FiMessageCircle, FiCheck, FiX } from 'react-icons/fi';
 import { useState } from 'react';
 
 const industryPartners = [
@@ -353,8 +353,8 @@ export default function IndustrialWorkshops() {
               Conduct a Workshop
             </h2>
             <p className="text-black max-w-2xl mx-auto">
-              If you're an industry expert interested in conducting a workshop,
-              we'd love to collaborate with you. Fill out the proposal form below.
+              If you&apos;re an industry expert interested in conducting a workshop,
+              we&apos;d love to collaborate with you. Fill out the proposal form below.
             </p>
           </div>
           
@@ -431,7 +431,7 @@ export default function IndustrialWorkshops() {
                   className="mt-4 p-2 bg-green-100 text-green-800 rounded-md inline-flex items-center"
                 >
                   <FiCheck className="h-5 w-5 mr-2" />
-                  <span>Proposal submitted successfully! We'll contact you soon.</span>
+                  <span>Proposal submitted successfully! We&apos;ll contact you soon.</span>
                 </motion.div>
               )}
             </div>

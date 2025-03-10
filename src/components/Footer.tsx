@@ -121,7 +121,7 @@ export default function Footer() {
                 <FiMapPin className="h-5 w-5 mr-3 mt-1 text-primary/80" />
                 <span className="text-primary/80">
                   619, S-Block<br />
-                  Men's Hostel<br />
+                  Men&apos;s Hostel<br />
                   Vellore, Tamil Nadu
                 </span>
               </li>
