@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EMAIL_CONFIG } from '@/utils/emailService';
 import { toast } from 'react-hot-toast';
@@ -9,7 +9,6 @@ export default function AdminConfig() {
   const [adminEmail, setAdminEmail] = useState(EMAIL_CONFIG.ADMIN_EMAIL);
   const [senderEmail, setSenderEmail] = useState(EMAIL_CONFIG.SENDER_EMAIL);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,12 +22,6 @@ export default function AdminConfig() {
 
       // Show success message
       toast.success('Email configuration updated successfully!');
-      setIsSubmitted(true);
-
-      // Reset after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 9000);
     } catch (error) {
       console.error('Error updating email configuration:', error);
       toast.error('Failed to update email configuration. Please try again.');

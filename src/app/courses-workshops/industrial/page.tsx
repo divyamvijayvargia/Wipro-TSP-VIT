@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
 import { FiCalendar, FiUsers, FiMapPin, FiBriefcase, FiStar, FiMessageCircle, FiCheck, FiX } from 'react-icons/fi';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { sendConfirmationEmail, sendAdminNotificationEmail } from '@/utils/emailService';
 import { toast } from 'react-hot-toast';
 

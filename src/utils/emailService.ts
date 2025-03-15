@@ -16,7 +16,17 @@ interface EmailData {
   replyTo?: string;
   cc?: string[];
   bcc?: string[];
-  attachments?: any[];
+  attachments?: Array<{
+    filename: string;
+    content: Buffer | string;
+    contentType?: string;
+  }>;
+}
+
+interface UserData {
+  name: string;
+  email: string;
+  [key: string]: string | number | boolean | string[];
 }
 
 /**
@@ -67,7 +77,7 @@ export const sendEmail = async (emailData: EmailData, silent: boolean = false): 
  * @returns A promise that resolves when the email is sent
  */
 export const sendConfirmationEmail = async (
-  userData: { name: string; email: string; [key: string]: any },
+  userData: UserData,
   formType: 'contribution' | 'workshop' | 'program' | 'registration' | 'enrollment',
   silent: boolean = false
 ): Promise<boolean> => {
@@ -89,10 +99,10 @@ export const sendConfirmationEmail = async (
 
   const emailData: EmailData = {
     to: userData.email,
-    from: EMAIL_CONFIG.ADMIN_EMAIL, // Using the configured admin email
+    from: EMAIL_CONFIG.ADMIN_EMAIL,
     subject: subjects[formType],
     text: messages[formType],
-    replyTo: EMAIL_CONFIG.ADMIN_EMAIL, // Using the configured admin email
+    replyTo: EMAIL_CONFIG.ADMIN_EMAIL,
   };
 
   return sendEmail(emailData, silent);
@@ -106,7 +116,7 @@ export const sendConfirmationEmail = async (
  * @returns A promise that resolves when the email is sent
  */
 export const sendAdminNotificationEmail = async (
-  userData: { [key: string]: any },
+  userData: UserData,
   formType: 'contribution' | 'workshop' | 'program' | 'registration' | 'enrollment',
   silent: boolean = false
 ): Promise<boolean> => {
@@ -124,7 +134,7 @@ export const sendAdminNotificationEmail = async (
     .join('\n');
 
   const emailData: EmailData = {
-    to: EMAIL_CONFIG.ADMIN_EMAIL, // Using the configured admin email
+    to: EMAIL_CONFIG.ADMIN_EMAIL,
     from: EMAIL_CONFIG.SENDER_EMAIL,
     subject: subjects[formType],
     text: `A new ${formType} has been submitted:\n\n${formattedData}`,
