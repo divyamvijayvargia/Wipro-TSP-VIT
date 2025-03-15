@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
 import { FiUsers, FiCalendar, FiMapPin, FiClock, FiTarget, FiGlobe, FiLinkedin, FiPhone, FiCheckCircle } from 'react-icons/fi';
 import { useState } from 'react';
+import { sendConfirmationEmail, sendAdminNotificationEmail } from '@/utils/emailService';
+import { toast } from 'react-hot-toast';
 
 const speakers = [
   {
@@ -76,17 +78,75 @@ const activities = [
 
 export default function NetworkingEvent() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [registrationFormData, setRegistrationFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    organization: '',
+    role: '',
+    industry: '',
+    linkedin: '',
+    expectations: '',
+    activities: [] as string[],
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setRegistrationFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+    setRegistrationFormData(prev => {
+      if (checked) {
+        return { ...prev, activities: [...prev.activities, value] };
+      } else {
+        return { ...prev, activities: prev.activities.filter(activity => activity !== value) };
+      }
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
+    
+    try {
+      // Send email to admin with silent=true
+      await sendAdminNotificationEmail(registrationFormData, 'registration', true);
+      
+      // Send confirmation email to user with silent=true
+      await sendConfirmationEmail({
+        name: registrationFormData.fullName,
+        email: registrationFormData.email,
+        ...registrationFormData
+      }, 'registration', true);
+      
+      // Show a single success notification
+      toast.success('Registration successful! Confirmation email sent.');
+      
+      // Update UI
       setIsSubmitted(true);
+      
+      // Reset form data
+      setRegistrationFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        organization: '',
+        role: '',
+        industry: '',
+        linkedin: '',
+        expectations: '',
+        activities: [],
+      });
+      
       // Reset after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting registration:', error);
+      toast.error('There was an error submitting your registration. Please try again.');
+    }
   };
 
   return (
@@ -273,6 +333,7 @@ export default function NetworkingEvent() {
                 <FiCheckCircle className="h-12 w-12 mx-auto mb-4 text-green-600" />
                 <h3 className="text-xl font-semibold mb-2">Registration Successful!</h3>
                 <p>Thank you for registering for the Networking Event 2024. We will contact you soon with further details.</p>
+                <p className="mt-2">A confirmation email has been sent to your email address.</p>
               </div>
             </motion.div>
           ) : (
@@ -287,6 +348,9 @@ export default function NetworkingEvent() {
                     </label>
                     <input
                       type="text"
+                      name="fullName"
+                      value={registrationFormData.fullName}
+                      onChange={handleInputChange}
                       placeholder="Enter your full name"
                       required
                       className="w-full px-4 py-2 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -298,6 +362,9 @@ export default function NetworkingEvent() {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={registrationFormData.email}
+                      onChange={handleInputChange}
                       placeholder="Enter your email address"
                       required
                       className="w-full px-4 py-2 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -311,6 +378,9 @@ export default function NetworkingEvent() {
                       <FiPhone className="h-5 w-5 text-black/50 absolute ml-3" />
                       <input
                         type="tel"
+                        name="phone"
+                        value={registrationFormData.phone}
+                        onChange={handleInputChange}
                         placeholder="Enter your phone number"
                         required
                         className="w-full px-4 py-2 pl-10 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -323,6 +393,9 @@ export default function NetworkingEvent() {
                     </label>
                     <input
                       type="text"
+                      name="organization"
+                      value={registrationFormData.organization}
+                      onChange={handleInputChange}
                       placeholder="Enter your organization name"
                       required
                       className="w-full px-4 py-2 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -341,6 +414,9 @@ export default function NetworkingEvent() {
                     </label>
                     <input
                       type="text"
+                      name="role"
+                      value={registrationFormData.role}
+                      onChange={handleInputChange}
                       placeholder="Enter your current role"
                       required
                       className="w-full px-4 py-2 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -352,6 +428,9 @@ export default function NetworkingEvent() {
                     </label>
                     <input
                       type="text"
+                      name="industry"
+                      value={registrationFormData.industry}
+                      onChange={handleInputChange}
                       placeholder="Enter your industry"
                       required
                       className="w-full px-4 py-2 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -365,6 +444,9 @@ export default function NetworkingEvent() {
                       <FiLinkedin className="h-5 w-5 text-black/50 absolute ml-3" />
                       <input
                         type="url"
+                        name="linkedin"
+                        value={registrationFormData.linkedin}
+                        onChange={handleInputChange}
                         placeholder="https://linkedin.com/in/your-profile"
                         className="w-full px-4 py-2 pl-10 border border-accent/20 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
                       />
@@ -385,6 +467,10 @@ export default function NetworkingEvent() {
                       <label key={activity.title} className="flex items-center space-x-3">
                         <input
                           type="checkbox"
+                          name="activities"
+                          value={activity.title}
+                          checked={registrationFormData.activities.includes(activity.title)}
+                          onChange={handleCheckboxChange}
                           className="h-4 w-4 text-accent rounded border-accent/20 focus:ring-accent"
                         />
                         <span className="text-accent">{activity.title}</span>
@@ -397,6 +483,9 @@ export default function NetworkingEvent() {
                     What do you hope to achieve from this event?
                   </label>
                   <textarea
+                    name="expectations"
+                    value={registrationFormData.expectations}
+                    onChange={handleInputChange}
                     placeholder="Share your expectations and goals..."
                     rows={4}
                     required

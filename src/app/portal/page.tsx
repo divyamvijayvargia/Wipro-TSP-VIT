@@ -4,6 +4,8 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { FiUpload, FiSend, FiCheckCircle, FiX } from 'react-icons/fi';
+import { sendConfirmationEmail, sendAdminNotificationEmail } from '@/utils/emailService';
+import { toast } from 'react-hot-toast';
 
 type FormData = {
   name: string;
@@ -30,24 +32,14 @@ export default function Portal() {
     setIsSubmitting(true);
     
     try {
-      // In a real application, you would send this data to your backend
-      // This is a simulated API call
-      console.log('Sending data:', data);
+      // Send email to admin with silent=true to prevent showing notification
+      await sendAdminNotificationEmail(data, 'contribution', true);
       
-      // Simulate sending email
-      const emailData = {
-        to: "divyamvijayvargia25@gmail.com", // Replace with your actual email
-        from: data.email,
-        subject: `Portal Submission: ${data.category}`,
-        text: `
-          Name: ${data.name}
-          Email: ${data.email}
-          Category: ${data.category}
-          Message: ${data.message}
-        `,
-      };
+      // Send confirmation email to user with silent=true to prevent showing notification
+      await sendConfirmationEmail(data, 'contribution', true);
       
-      console.log('Email would be sent with:', emailData);
+      // Show a single success notification
+      toast.success('Form submitted successfully! Confirmation email sent.');
       
       // Simulate API delay
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -62,7 +54,7 @@ export default function Portal() {
       }, 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('There was an error submitting your form. Please try again.');
+      toast.error('There was an error submitting your form. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -152,6 +144,9 @@ export default function Portal() {
                 <p className="text-gray-600">
                   Your submission has been received. We appreciate your contribution.
                 </p>
+                <p className="text-gray-600 mt-2">
+                  A confirmation email has been sent to your email address.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="p-8">
@@ -200,7 +195,7 @@ export default function Portal() {
                     </label>
                     <select
                       id="category"
-                      defaultValue="Select a category"
+                      defaultValue=""
                       {...register('category', { required: 'Please select a category' })}
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500/20 text-black"
                     >

@@ -3,7 +3,9 @@
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
 import { FiCalendar, FiUsers, FiMapPin, FiBriefcase, FiStar, FiMessageCircle, FiCheck, FiX } from 'react-icons/fi';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { sendConfirmationEmail, sendAdminNotificationEmail } from '@/utils/emailService';
+import { toast } from 'react-hot-toast';
 
 const industryPartners = [
   {
@@ -113,39 +115,117 @@ export default function IndustrialWorkshops() {
   const [registeringWorkshop, setRegisteringWorkshop] = useState<string | null>(null);
   const [registrationSuccess, setRegistrationSuccess] = useState<string | null>(null);
   const [proposalSubmitted, setProposalSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    companyName: '',
+    contactPerson: '',
+    email: '',
+    workshopDomain: '',
+    description: '',
+  });
+  const [registrationFormData, setRegistrationFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    institution: '',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleRegistrationInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setRegistrationFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleRegisterClick = (workshopTitle: string) => {
     setRegisteringWorkshop(workshopTitle);
     setRegistrationSuccess(null);
   };
 
-  const handleRegisterSubmit = (e: React.FormEvent, workshopTitle: string) => {
+  const handleRegisterSubmit = async (e: React.FormEvent, workshopTitle: string) => {
     e.preventDefault();
-    // Simulate registration process
-    setTimeout(() => {
+    
+    try {
+      // Prepare data for email
+      const emailData = {
+        ...registrationFormData,
+        workshop: workshopTitle,
+      };
+      
+      // Send email to admin with silent=true
+      await sendAdminNotificationEmail(emailData, 'registration', true);
+      
+      // Send confirmation email to user with silent=true
+      await sendConfirmationEmail(emailData, 'registration', true);
+      
+      // Show a single success notification
+      toast.success('Registration successful! Confirmation email sent.');
+      
+      // Update UI
       setRegisteringWorkshop(null);
       setRegistrationSuccess(workshopTitle);
+      
+      // Reset form data
+      setRegistrationFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        institution: '',
+      });
+      
       // Reset success message after 5 seconds
       setTimeout(() => {
         setRegistrationSuccess(null);
       }, 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting registration:', error);
+      toast.error('There was an error submitting your registration. Please try again.');
+    }
   };
 
   const closeRegistrationForm = () => {
     setRegisteringWorkshop(null);
   };
 
-  const handleProposalSubmit = (e: React.FormEvent) => {
+  const handleProposalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate proposal submission
-    setTimeout(() => {
+    
+    try {
+      // Send email to admin with silent=true
+      await sendAdminNotificationEmail(formData, 'workshop', true);
+      
+      // Send confirmation email to user with silent=true
+      await sendConfirmationEmail({
+        name: formData.contactPerson,
+        email: formData.email,
+        ...formData
+      }, 'workshop', true);
+      
+      // Show a single success notification
+      toast.success('Workshop proposal submitted successfully! Confirmation email sent.');
+      
+      // Update UI
       setProposalSubmitted(true);
+      
+      // Reset form data
+      setFormData({
+        companyName: '',
+        contactPerson: '',
+        email: '',
+        workshopDomain: '',
+        description: '',
+      });
+      
       // Reset success message after 5 seconds
       setTimeout(() => {
         setProposalSubmitted(false);
       }, 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting proposal:', error);
+      toast.error('There was an error submitting your proposal. Please try again.');
+    }
   };
 
   return (
@@ -366,6 +446,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
                   placeholder="Enter your company name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
                   required
@@ -377,6 +460,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="text"
+                  name="contactPerson"
+                  value={formData.contactPerson}
+                  onChange={handleInputChange}
                   placeholder="Enter contact person name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
                   required
@@ -388,6 +474,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="Enter email address"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
                   required
@@ -399,6 +488,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="text"
+                  name="workshopDomain"
+                  value={formData.workshopDomain}
+                  onChange={handleInputChange}
                   placeholder="e.g., Cloud Computing, AI, IoT"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
                   required
@@ -410,6 +502,9 @@ export default function IndustrialWorkshops() {
                 Workshop Description
               </label>
               <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleInputChange}
                 placeholder="Brief description of the proposed workshop"
                 rows={4}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -468,6 +563,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="text"
+                  name="fullName"
+                  value={registrationFormData.fullName}
+                  onChange={handleRegistrationInputChange}
                   placeholder="Enter your full name"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -479,6 +577,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={registrationFormData.email}
+                  onChange={handleRegistrationInputChange}
                   placeholder="Enter your email address"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -490,6 +591,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={registrationFormData.phone}
+                  onChange={handleRegistrationInputChange}
                   placeholder="Enter your phone number"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"
@@ -501,6 +605,9 @@ export default function IndustrialWorkshops() {
                 </label>
                 <input
                   type="text"
+                  name="institution"
+                  value={registrationFormData.institution}
+                  onChange={handleRegistrationInputChange}
                   placeholder="Enter your institution or organization"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-accent"

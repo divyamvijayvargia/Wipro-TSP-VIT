@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
 import { FiCode, FiDatabase, FiCloud, FiTrendingUp, FiCpu, FiShield, FiClock, FiUsers, FiStar, FiX, FiCheck } from 'react-icons/fi';
 import { useState } from 'react';
+import { sendConfirmationEmail, sendAdminNotificationEmail } from '@/utils/emailService';
+import { toast } from 'react-hot-toast';
 
 const courseCategories = ['All', 'Technology', 'Data Science', 'Business', 'Design'];
 const courseLevels = ['All Levels', 'Beginner', 'Intermediate', 'Advanced'];
@@ -107,6 +109,17 @@ export default function ValueAddedCourse() {
   const [searchQuery, setSearchQuery] = useState('');
   const [enrollingCourse, setEnrollingCourse] = useState<string | null>(null);
   const [enrollmentSuccess, setEnrollmentSuccess] = useState<string | null>(null);
+  const [enrollmentFormData, setEnrollmentFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    education: '',
+  });
+
+  const handleEnrollmentInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setEnrollmentFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const filteredCourses = courses.filter(course => {
     const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
@@ -121,17 +134,45 @@ export default function ValueAddedCourse() {
     setEnrollmentSuccess(null);
   };
 
-  const handleEnrollSubmit = (e: React.FormEvent, courseTitle: string) => {
+  const handleEnrollSubmit = async (e: React.FormEvent, courseTitle: string) => {
     e.preventDefault();
-    // Simulate enrollment process
-    setTimeout(() => {
+    
+    try {
+      // Prepare data for email
+      const emailData = {
+        ...enrollmentFormData,
+        course: courseTitle,
+      };
+      
+      // Send email to admin with silent=true
+      await sendAdminNotificationEmail(emailData, 'enrollment', true);
+      
+      // Send confirmation email to user with silent=true
+      await sendConfirmationEmail(emailData, 'enrollment', true);
+      
+      // Show a single success notification
+      toast.success('Enrollment successful! Confirmation email sent.');
+      
+      // Update UI
       setEnrollingCourse(null);
       setEnrollmentSuccess(courseTitle);
+      
+      // Reset form data
+      setEnrollmentFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        education: '',
+      });
+      
       // Reset success message after 5 seconds
       setTimeout(() => {
         setEnrollmentSuccess(null);
       }, 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting enrollment:', error);
+      toast.error('There was an error submitting your enrollment. Please try again.');
+    }
   };
 
   const closeEnrollmentForm = () => {
@@ -332,6 +373,9 @@ export default function ValueAddedCourse() {
                   </label>
                   <input
                     type="text"
+                    name="fullName"
+                    value={enrollmentFormData.fullName}
+                    onChange={handleEnrollmentInputChange}
                     placeholder="Enter your full name"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
@@ -343,6 +387,9 @@ export default function ValueAddedCourse() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={enrollmentFormData.email}
+                    onChange={handleEnrollmentInputChange}
                     placeholder="Enter your email address"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
@@ -354,6 +401,9 @@ export default function ValueAddedCourse() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
+                    value={enrollmentFormData.phone}
+                    onChange={handleEnrollmentInputChange}
                     placeholder="Enter your phone number"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
@@ -364,6 +414,9 @@ export default function ValueAddedCourse() {
                     Educational Background
                   </label>
                   <textarea
+                    name="education"
+                    value={enrollmentFormData.education}
+                    onChange={handleEnrollmentInputChange}
                     placeholder="Briefly describe your educational background"
                     rows={3}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
