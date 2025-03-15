@@ -150,7 +150,10 @@ export default function IndustrialWorkshops() {
     try {
       // Prepare data for email
       const emailData = {
-        ...registrationFormData,
+        name: registrationFormData.fullName,
+        email: registrationFormData.email,
+        phone: registrationFormData.phone,
+        institution: registrationFormData.institution,
         workshop: workshopTitle,
       };
       
@@ -194,12 +197,17 @@ export default function IndustrialWorkshops() {
     
     try {
       // Send email to admin with silent=true
-      await sendAdminNotificationEmail(formData, 'workshop', true);
+      await sendAdminNotificationEmail({
+        name: formData.contactPerson,
+        email: formData.email,
+        companyName: formData.companyName,
+        workshopDomain: formData.workshopDomain,
+        description: formData.description
+      }, 'workshop', true);
       
       // Send confirmation email to user with silent=true
       await sendConfirmationEmail({
         name: formData.contactPerson,
-        email: formData.email,
         ...formData
       }, 'workshop', true);
       

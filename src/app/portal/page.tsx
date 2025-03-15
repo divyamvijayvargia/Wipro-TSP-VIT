@@ -32,11 +32,19 @@ export default function Portal() {
     setIsSubmitting(true);
     
     try {
+      // Create an object that matches UserData type by excluding the file property
+      const emailData = {
+        name: data.name,
+        email: data.email,
+        category: data.category,
+        message: data.message
+      };
+      
       // Send email to admin with silent=true to prevent showing notification
-      await sendAdminNotificationEmail(data, 'contribution', true);
+      await sendAdminNotificationEmail(emailData, 'contribution', true);
       
       // Send confirmation email to user with silent=true to prevent showing notification
-      await sendConfirmationEmail(data, 'contribution', true);
+      await sendConfirmationEmail(emailData, 'contribution', true);
       
       // Show a single success notification
       toast.success('Form submitted successfully! Confirmation email sent.');

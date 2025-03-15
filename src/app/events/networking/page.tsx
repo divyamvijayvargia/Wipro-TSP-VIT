@@ -111,12 +111,21 @@ export default function NetworkingEvent() {
     
     try {
       // Send email to admin with silent=true
-      await sendAdminNotificationEmail(registrationFormData, 'registration', true);
+      await sendAdminNotificationEmail({
+        name: registrationFormData.fullName,
+        email: registrationFormData.email,
+        phone: registrationFormData.phone,
+        organization: registrationFormData.organization,
+        role: registrationFormData.role,
+        industry: registrationFormData.industry,
+        linkedin: registrationFormData.linkedin,
+        expectations: registrationFormData.expectations,
+        activities: registrationFormData.activities
+      }, 'registration', true);
       
       // Send confirmation email to user with silent=true
       await sendConfirmationEmail({
         name: registrationFormData.fullName,
-        email: registrationFormData.email,
         ...registrationFormData
       }, 'registration', true);
       

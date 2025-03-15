@@ -140,7 +140,10 @@ export default function ValueAddedCourse() {
     try {
       // Prepare data for email
       const emailData = {
-        ...enrollmentFormData,
+        name: enrollmentFormData.fullName,
+        email: enrollmentFormData.email,
+        phone: enrollmentFormData.phone,
+        education: enrollmentFormData.education,
         course: courseTitle,
       };
       
