@@ -9,68 +9,72 @@ const vitFacultyTeam = [
     role: 'Professor, Computer Science',
     image: 'https://i.pravatar.cc/150?img=4',
     description: 'Expert in educational technology with 15 years of experience.',
+    linkedin:"",
   },
   {
     name: 'Prof. Amit Verma',
     role: 'Associate Professor, Information Technology',
     image: 'https://i.pravatar.cc/150?img=5',
     description: 'Specializes in curriculum development and e-learning.',
+    linkedin:"",
   },
   {
     name: 'Dr. Rajesh Kumar',
     role: 'Professor, Electronics Engineering',
     image: 'https://i.pravatar.cc/150?img=11',
     description: 'Leading research in educational methodologies and IoT.',
+    linkedin:"",
+
   },
   {
     name: 'Dr. Meena Patel',
     role: 'Assistant Professor, Data Science',
     image: 'https://i.pravatar.cc/150?img=7',
     description: 'Expert in data analytics and machine learning education.',
+    linkedin:"",
   },
   {
     name: 'Prof. Sunil Mehta',
     role: 'Professor, Software Engineering',
     image: 'https://i.pravatar.cc/150?img=8',
     description: 'Specializes in software development methodologies and project management.',
+    linkedin:"",
   },
 ];
 
 // Teesside University Team
 const teessideTeam = [
   {
-    name: 'Dr. James Wilson',
-    role: 'Professor, Computer Science',
-    image: 'https://i.pravatar.cc/150?img=9',
+    name: 'Dr Jinoop Arackal Narayanan',
+    role: 'Lecturer, mechanical engineering',
+    image: '/images/home/jinoop.jpg',
     description: 'Expert in international curriculum development and academic partnerships.',
+    linkedin:"https://www.linkedin.com/in/jinoop-arackal-narayanan-a9a5a6b0/",
   },
   {
-    name: 'Dr. Sarah Thompson',
-    role: 'Associate Professor, Digital Technologies',
-    image: 'https://i.pravatar.cc/150?img=10',
+    name: 'Dr Palat Meethale Ushasree',
+    role: 'Lecturer, electric and electronic engineering',
+    image: '/images/home/palat.jpg',
     description: 'Specializes in digital transformation and educational innovation.',
+    linkedin:"https://www.linkedin.com/in/drpmushasree/",
   },
 ];
 
 // Wipro Team
 const wiproTeam = [
   {
-    name: 'Mr. Vikram Singh',
-    role: 'Technical Director',
-    image: 'https://i.pravatar.cc/150?img=11',
+    name: 'Akshatha Hulmani Dayananda',
+    role: 'Addwize leader and manager',
+    image: '/images/home/akshatha.jpg',
     description: 'Leads technical implementation and industry integration.',
+    linkedin:"https://www.linkedin.com/in/akshatha-hulmani-dayananda-2b43b1155/",
   },
   {
-    name: 'Ms. Ananya Desai',
-    role: 'Program Manager',
-    image: 'https://i.pravatar.cc/150?img=12',
+    name: 'Leelakrishnan Ethiraj',
+    role: 'Assistant manager, Addwize',
+    image: '/images/home/leelakrishnan.jpg',
     description: 'Manages program implementation and industry-academia collaboration.',
-  },
-  {
-    name: 'Mr. Rahul Gupta',
-    role: 'Innovation Lead',
-    image: 'https://i.pravatar.cc/150?img=13',
-    description: 'Drives innovation in educational technology and digital learning solutions.',
+    linkedin:"https://www.linkedin.com/in/leelakrishnan-ethiraj-80376219b/",
   },
 ];
 
@@ -78,7 +82,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
-      
+
       {/* Features Section */}
       <section className="py-12 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +94,7 @@ export default function Home() {
               Our educational portal provides various resources and opportunities for growth.
             </p>
           </div>
-          
+
           <div className="mt-10">
             <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
               <div className="flex flex-col items-center">
@@ -104,7 +108,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex flex-col items-center">
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-primary">
                   <FiUsers className="h-6 w-6" />
@@ -116,7 +120,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex flex-col items-center">
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-primary">
                   <FiCalendar className="h-6 w-6" />
@@ -128,7 +132,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex flex-col items-center">
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-secondary text-primary">
                   <FiAward className="h-6 w-6" />
@@ -144,7 +148,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Project Information */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,13 +161,13 @@ export default function Home() {
               comprehensive educational resources and professional development opportunities.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="relative p-8 rounded-lg shadow-lg overflow-hidden">
               <div className="absolute inset-0 z-0">
-                <img 
-                  src="/images/mission.avif" 
-                  alt="Electronics background" 
+                <img
+                  src="/images/mission.avif"
+                  alt="Electronics background"
                   className="w-full h-full object-cover opacity-60"
                 />
               </div>
@@ -189,12 +193,12 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="relative p-8 rounded-lg shadow-lg overflow-hidden">
               <div className="absolute inset-0 z-0">
-                <img 
-                  src="/images/vision.webp" 
-                  alt="Technology background" 
+                <img
+                  src="/images/vision.webp"
+                  alt="Technology background"
                   className="w-full h-full object-cover opacity-60"
                 />
               </div>
@@ -223,21 +227,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* VIT Faculty Team */}
+
+      {/* Teesside University Team */}
       <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-secondary sm:text-4xl">
-              VIT Faculty Team
+              Teesside University Team
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl text-secondary/70">
-              Experienced faculty members from VIT leading the educational initiatives.
+              Academic partners from Teesside University contributing to the program.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {vitFacultyTeam.map((member) => (
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {teessideTeam.map((member) => (
               <div
                 key={member.name}
                 className="bg-white p-6 rounded-lg shadow-lg text-center"
@@ -250,7 +254,7 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-accent">{member.name}</h3>
+                <h3 className="text-xl font-semibold text-accent"><a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">{member.name}</a></h3>
                 <p className="text-accent mb-2">{member.role}</p>
                 <p className="text-accent/70 text-sm">{member.description}</p>
               </div>
@@ -258,21 +262,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* Teesside University Team */}
+
+      {/* VIT Faculty Team */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-background sm:text-4xl">
-              Teesside University Team
+              VIT Faculty Team
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl text-background/70">
-              Academic partners from Teesside University contributing to the program.
+              Experienced faculty members from VIT leading the educational initiatives.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {teessideTeam.map((member) => (
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {vitFacultyTeam.map((member) => (
               <div
                 key={member.name}
                 className="bg-primary p-6 rounded-lg shadow-lg text-center"
@@ -285,7 +289,7 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary">{member.name}</h3>
+                <h3 className="text-xl font-semibold text-secondary"><a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">{member.name}</a></h3>
                 <p className="text-accent mb-2">{member.role}</p>
                 <p className="text-secondary/70 text-sm">{member.description}</p>
               </div>
@@ -293,7 +297,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Wipro Team */}
       <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -305,8 +309,8 @@ export default function Home() {
               Industry experts from Wipro providing practical insights and support.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {wiproTeam.map((member) => (
               <div
                 key={member.name}
@@ -320,7 +324,7 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-accent">{member.name}</h3>
+                <h3 className="text-xl font-semibold text-accent"><a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">{member.name}</a></h3>
                 <p className="text-accent mb-2">{member.role}</p>
                 <p className="text-accent/70 text-sm">{member.description}</p>
               </div>
@@ -328,7 +332,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="bg-secondary">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">

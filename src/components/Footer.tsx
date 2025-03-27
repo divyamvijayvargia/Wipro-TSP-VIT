@@ -138,8 +138,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary/20">
+          <p className="text-primary/80 text-left">
+          Designed and Developed with ❤️ by <a href="https://www.linkedin.com/in/divyamvijayvargia/" target="_blank" rel="noopener noreferrer" className="underline"><b>Divyam Vijayvargia</b></a>
+          </p>
           <p className="text-primary/80 text-center">
             &copy; {currentYear} Educational Portal. All rights reserved.
+          </p>
+          <p className="text-primary/80 text-right">
+            <b>divyamvijayvargia25@gmail.com</b> and <a href="https://portfolio-website-lac-ten.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline"><b>portfolio</b></a>
           </p>
         </div>
       </div>
