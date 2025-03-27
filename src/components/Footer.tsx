@@ -145,8 +145,9 @@ export default function Footer() {
             &copy; {currentYear} Educational Portal. All rights reserved.
           </p>
           <p className="text-primary/80 text-right">
-            <b>divyamvijayvargia25@gmail.com</b> and <a href="https://portfolio-website-lac-ten.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline"><b>portfolio</b></a>
-          </p>
+            <b>divyamvijayvargia25@gmail.com</b> 
+            {/* and <a href="https://portfolio-website-lac-ten.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline"><b>portfolio</b></a> */}
+          </p> 
         </div>
       </div>
     </footer>
