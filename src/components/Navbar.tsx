@@ -37,7 +37,7 @@ const navItems = [
     href: '/portal',
     dropdown: [
       { name: 'Contribution Portal', href: '/portal' },
-      { name: 'Email Configuration', href: '/admin/config' },
+      // { name: 'Email Configuration', href: '/admin/config' },
     ],
   },
 ];

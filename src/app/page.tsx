@@ -5,39 +5,32 @@ import Link from 'next/link';
 // VIT Faculty Team
 const vitFacultyTeam = [
   {
-    name: 'Dr. Priya Sharma',
-    role: 'Professor, Computer Science',
-    image: 'https://i.pravatar.cc/150?img=4',
+    name: 'Dr. Chinmaya P. Mohanty',
+    role: 'Associate Professor, Mechanical Engineering ',
+    image: '/images/home/chin.jpg',
     description: 'Expert in educational technology with 15 years of experience.',
     linkedin:"",
   },
   {
-    name: 'Prof. Amit Verma',
-    role: 'Associate Professor, Information Technology',
-    image: 'https://i.pravatar.cc/150?img=5',
+    name: 'Dr. Tapano Kumar Hotta',
+    role: 'Professor, Mechanical Engineering ',
+    image: '/images/home/tapano.jpg',
     description: 'Specializes in curriculum development and e-learning.',
     linkedin:"",
   },
   {
-    name: 'Dr. Rajesh Kumar',
-    role: 'Professor, Electronics Engineering',
-    image: 'https://i.pravatar.cc/150?img=11',
+    name: 'Dr. Aruna Kumar Behura',
+    role: 'Associate Professor, Thermal and Energy Engineering',
+    image: '/images/home/aruna.jpg',
     description: 'Leading research in educational methodologies and IoT.',
     linkedin:"",
 
   },
   {
-    name: 'Dr. Meena Patel',
-    role: 'Assistant Professor, Data Science',
-    image: 'https://i.pravatar.cc/150?img=7',
+    name: 'Dr. Bibhuti Bhushan Sahoo',
+    role: 'Professor, Mechanical Engineering ',
+    image: '/images/home/bibhuti.jpg',
     description: 'Expert in data analytics and machine learning education.',
-    linkedin:"",
-  },
-  {
-    name: 'Prof. Sunil Mehta',
-    role: 'Professor, Software Engineering',
-    image: 'https://i.pravatar.cc/150?img=8',
-    description: 'Specializes in software development methodologies and project management.',
     linkedin:"",
   },
 ];
