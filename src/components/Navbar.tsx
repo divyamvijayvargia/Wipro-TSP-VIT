@@ -11,8 +11,8 @@ const navItems = [
     name: 'Faculty Development',
     href: '/faculty-development',
     dropdown: [
-      { name: 'Faculty Development Program', href: '/faculty-development/program' },
-      { name: 'Module Development', href: '/faculty-development/module-development' },
+      { name: 'Global faculty development programme at TU', href: '/faculty-development/program' },
+      { name: 'Module/ subject development on battery materials and manufacturing', href: '/faculty-development/module-development' },
       { name: 'Module Delivery at TU and VIT', href: '/faculty-development/module-delivery' },
     ],
   },
@@ -20,16 +20,16 @@ const navItems = [
     name: 'Courses & Workshops',
     href: '/courses-workshops',
     dropdown: [
-      { name: 'Value-added Course', href: '/courses-workshops/value-added' },
-      { name: 'Industrial Workshops', href: '/courses-workshops/industrial' },
+      { name: 'Value added course at VIT', href: '/courses-workshops/value-added' },
+      { name: 'Industrial workshops at Wipro', href: '/courses-workshops/industrial' },
     ],
   },
   {
     name: 'Events',
     href: '/events',
     dropdown: [
-      { name: 'Technical Symposium', href: '/events/symposium' },
-      { name: 'Networking Event', href: '/events/networking' },
+      { name: 'Symposium on battery materials and manufacturing at TU', href: '/events/symposium' },
+      { name: '⁠Global industry networking at VIT', href: '/events/networking' },
     ],
   },
   {
@@ -67,7 +67,7 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                WIPRO-TSP-VIT
+                TU-VIT-WIPRO
               </motion.span>
             </Link>
           </div>

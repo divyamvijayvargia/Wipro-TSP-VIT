@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WIPRO-TSP-VIT",
+  title: "TU-VIT-WIPRO",
   description: "Educational resources and portal for faculty and students",
 };
 
