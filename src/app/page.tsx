@@ -9,21 +9,21 @@ const vitFacultyTeam = [
     role: 'Associate Professor, Mechanical Engineering ',
     image: '/images/home/chin.jpg',
     description: 'Expert in educational technology with 15 years of experience.',
-    linkedin:"",
+    linkedin:"https://www.linkedin.com/in/dr-chinmay-mohanty-64678568?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: 'Dr. Tapano Kumar Hotta',
     role: 'Professor, Mechanical Engineering ',
     image: '/images/home/tapano.jpg',
     description: 'Specializes in curriculum development and e-learning.',
-    linkedin:"",
+    linkedin:"https://www.linkedin.com/in/tapano-kumar-hotta-4ab55725?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: 'Dr. Aruna Kumar Behura',
     role: 'Associate Professor, Thermal and Energy Engineering',
     image: '/images/home/aruna.jpg',
     description: 'Leading research in educational methodologies and IoT.',
-    linkedin:"",
+    linkedin:"https://www.linkedin.com/in/dr-arun-kumar-behura-a14675124?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
 
   },
   {
@@ -31,7 +31,7 @@ const vitFacultyTeam = [
     role: 'Professor, Mechanical Engineering ',
     image: '/images/home/bibhuti.jpg',
     description: 'Expert in data analytics and machine learning education.',
-    linkedin:"",
+    linkedin:"https://www.linkedin.com/in/dr-bibhuti-bhusan-sahoo-94745085?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
 ];
 

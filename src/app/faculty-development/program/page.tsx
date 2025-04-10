@@ -7,65 +7,69 @@ import { useState } from 'react';
 
 const programs = [
   {
-    title: 'Pedagogical Excellence',
-    description: 'Master modern teaching methodologies, student engagement techniques, and classroom management.',
-    duration: '4 weeks',
+    title: 'Advances in Sustainable EV Battery Materials and their Manufacturability',
+    description: 'Explore sustainable EV battery materials, advanced manufacturability, and global academic-industry collaboration.',
+    duration: '1 day',
     icon: FiBook,
-    nextBatch: 'March 2024',
-    seats: 30,
-    details: 'This comprehensive program covers modern pedagogical approaches, active learning strategies, classroom management techniques, and student assessment methods. Participants will engage in hands-on workshops, peer teaching sessions, and receive personalized feedback from expert educators.',
+    date: '9th June 2025',
+    seats: 'Hybrid (In-person & Online)',
+    location: 'Teesside University, TS1 3BX (OL1, Europa Building)',
+    details: 'Teesside University is delighted to host this international Faculty Development Programme (FDP), scheduled for 9th June 2025. Organised in collaboration with Vellore Institute of Technology (VIT), India, and Wipro 3D, and funded by the British Council Going Global Partnership Grant, this hybrid event focuses on advancements in sustainable EV battery materials and manufacturability. The program includes expert lectures, case studies, interactive sessions, and global networking, forming part of a larger collaborative project: “A Deep Learning-Based Framework for the Selection of Electric Vehicle Battery Materials and their Manufacturability.”',
     outcomes: [
-      'Design engaging and effective lesson plans',
-      'Implement active learning strategies in the classroom',
-      'Develop fair and comprehensive assessment methods',
-      'Create inclusive learning environments for diverse students'
+      'Foster international collaboration through co-developed hands-on modules for battery material selection',
+      'Empower young entrepreneurs and innovators by supporting startups and building employability',
+      'Strengthen academia-industry partnerships to drive innovation in EV battery technologies',
+      'Promote inclusive growth through innovation challenges and community-focused initiatives aligned with SDGs'
     ]
   },
-  {
-    title: 'Educational Technology',
-    description: 'Learn to leverage digital tools, LMS platforms, and create engaging online content.',
-    duration: '3 weeks',
-    icon: FiTarget,
-    nextBatch: 'April 2024',
-    seats: 25,
-    details: 'This program focuses on integrating technology into teaching practices. Participants will learn to use various educational technologies, create digital content, manage online classrooms, and design blended learning experiences.',
-    outcomes: [
-      'Effectively use Learning Management Systems (LMS)',
-      'Create engaging multimedia educational content',
-      'Design and implement online assessments',
-      'Facilitate effective virtual classroom sessions'
-    ]
-  },
-  {
-    title: 'Assessment & Evaluation',
-    description: 'Design effective assessment strategies and rubrics for better learning outcomes.',
-    duration: '2 weeks',
-    icon: FiUsers,
-    nextBatch: 'May 2024',
-    seats: 35,
-    details: 'This specialized program focuses on developing comprehensive assessment strategies that accurately measure student learning. Participants will learn to design various assessment types, create effective rubrics, provide constructive feedback, and use assessment data to improve teaching.',
-    outcomes: [
-      'Design valid and reliable assessment instruments',
-      'Create clear and effective grading rubrics',
-      'Implement formative and summative assessment strategies',
-      'Use assessment data to improve teaching methods'
-    ]
-  },
-  {
-    title: 'Research & Publication',
-    description: 'Enhance research skills, paper writing, and get published in top journals.',
-    duration: '6 weeks',
-    icon: FiAward,
-    nextBatch: 'June 2024',
-    seats: 20,
-    details: 'This intensive program guides faculty through the entire research and publication process. From identifying research problems to publishing in reputed journals, participants will develop essential skills for academic writing, research methodology, data analysis, and navigating the publication process.',
-    outcomes: [
-      'Identify significant research problems in your field',
-      'Design rigorous research methodologies',
-      'Write clear and compelling academic papers',
-      'Navigate the journal submission and review process'
-    ]
-  },
+  // {
+  //   title: 'Educational Technology',
+  //   description: 'Learn to leverage digital tools, LMS platforms, and create engaging online content.',
+  //   duration: '3 weeks',
+  //   icon: FiTarget,
+  //   date: 'April 2024',
+  //   seats: 25,
+  //   location: 'Online',
+  //   details: 'This program focuses on integrating technology into teaching practices. Participants will learn to use various educational technologies, create digital content, manage online classrooms, and design blended learning experiences.',
+  //   outcomes: [
+  //     'Effectively use Learning Management Systems (LMS)',
+  //     'Create engaging multimedia educational content',
+  //     'Design and implement online assessments',
+  //     'Facilitate effective virtual classroom sessions'
+  //   ]
+  // },
+  // {
+  //   title: 'Assessment & Evaluation',
+  //   description: 'Design effective assessment strategies and rubrics for better learning outcomes.',
+  //   duration: '2 weeks',
+  //   icon: FiUsers,
+  //   date: 'May 2024',
+  //   seats: 35,
+  //   location: 'Online',
+  //   details: 'This specialized program focuses on developing comprehensive assessment strategies that accurately measure student learning. Participants will learn to design various assessment types, create effective rubrics, provide constructive feedback, and use assessment data to improve teaching.',
+  //   outcomes: [
+  //     'Design valid and reliable assessment instruments',
+  //     'Create clear and effective grading rubrics',
+  //     'Implement formative and summative assessment strategies',
+  //     'Use assessment data to improve teaching methods'
+  //   ]
+  // },
+  // {
+  //   title: 'Research & Publication',
+  //   description: 'Enhance research skills, paper writing, and get published in top journals.',
+  //   duration: '6 weeks',
+  //   icon: FiAward,
+  //   date: 'June 2024',
+  //   seats: 20,
+  //   location: 'Online',
+  //   details: 'This intensive program guides faculty through the entire research and publication process. From identifying research problems to publishing in reputed journals, participants will develop essential skills for academic writing, research methodology, data analysis, and navigating the publication process.',
+  //   outcomes: [
+  //     'Identify significant research problems in your field',
+  //     'Design rigorous research methodologies',
+  //     'Write clear and compelling academic papers',
+  //     'Navigate the journal submission and review process'
+  //   ]
+  // },
 ];
 
 export default function FacultyDevelopmentProgram() {
@@ -135,12 +139,17 @@ export default function FacultyDevelopmentProgram() {
                   </div>
                   <div>
                     <span className="text-sm font-medium text-accent">
-                      Next Batch: {program.nextBatch}
+                      Date: {program.date}
                     </span>
                   </div>
                   <div>
                     <span className="text-sm font-medium text-accent">
                       Available Seats: {program.seats}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-accent">
+                      Location: {program.location}
                     </span>
                   </div>
                 </div>
