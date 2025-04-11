@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader';
-import { FiBook, FiTarget, FiUsers, FiAward, FiChevronDown, FiChevronUp, FiCheckCircle } from 'react-icons/fi';
+import { FiBook, FiChevronDown, FiChevronUp, FiCheckCircle } from 'react-icons/fi';
+// import {FiTarget, FiUsers, FiAward}
 import { useState } from 'react';
 
 const programs = [
