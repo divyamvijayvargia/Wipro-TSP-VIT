@@ -8,21 +8,21 @@ const vitFacultyTeam = [
     name: 'Dr. Chinmaya P. Mohanty',
     role: 'Associate Professor, Mechanical Engineering ',
     image: '/images/home/chin.jpg',
-    description: 'Expert in educational technology with 15 years of experience.',
+    // description: 'Expert in educational technology with 15 years of experience.',
     linkedin:"https://www.linkedin.com/in/dr-chinmay-mohanty-64678568?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: 'Dr. Tapano Kumar Hotta',
     role: 'Professor, Mechanical Engineering ',
     image: '/images/home/tapano.jpg',
-    description: 'Specializes in curriculum development and e-learning.',
+    // description: 'Specializes in curriculum development and e-learning.',
     linkedin:"https://www.linkedin.com/in/tapano-kumar-hotta-4ab55725?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: 'Dr. Aruna Kumar Behura',
     role: 'Associate Professor, Thermal and Energy Engineering',
     image: '/images/home/aruna.jpg',
-    description: 'Leading research in educational methodologies and IoT.',
+    // description: 'Leading research in educational methodologies and IoT.',
     linkedin:"https://www.linkedin.com/in/dr-arun-kumar-behura-a14675124?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
 
   },
@@ -30,7 +30,7 @@ const vitFacultyTeam = [
     name: 'Dr. Bibhuti Bhushan Sahoo',
     role: 'Professor, Mechanical Engineering ',
     image: '/images/home/bibhuti.jpg',
-    description: 'Expert in data analytics and machine learning education.',
+    // description: 'Expert in data analytics and machine learning education.',
     linkedin:"https://www.linkedin.com/in/dr-bibhuti-bhusan-sahoo-94745085?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
 ];
@@ -41,14 +41,14 @@ const teessideTeam = [
     name: 'Dr Jinoop Arackal Narayanan',
     role: 'Lecturer, mechanical engineering',
     image: '/images/home/jinoop.jpg',
-    description: 'Expert in international curriculum development and academic partnerships.',
+    // description: 'Expert in international curriculum development and academic partnerships.',
     linkedin:"https://www.linkedin.com/in/jinoop-arackal-narayanan-a9a5a6b0/",
   },
   {
     name: 'Dr Palat Meethale Ushasree',
     role: 'Lecturer, electric and electronic engineering',
     image: '/images/home/palat.jpg',
-    description: 'Specializes in digital transformation and educational innovation.',
+    // description: 'Specializes in digital transformation and educational innovation.',
     linkedin:"https://www.linkedin.com/in/drpmushasree/",
   },
 ];
@@ -59,14 +59,14 @@ const wiproTeam = [
     name: 'Akshatha Hulmani Dayananda',
     role: 'Addwize leader and manager',
     image: '/images/home/akshatha.jpg',
-    description: 'Leads technical implementation and industry integration.',
+    // description: 'Leads technical implementation and industry integration.',
     linkedin:"https://www.linkedin.com/in/akshatha-hulmani-dayananda-2b43b1155/",
   },
   {
     name: 'Leelakrishnan Ethiraj',
     role: 'Assistant manager, Addwize',
     image: '/images/home/leelakrishnan.jpg',
-    description: 'Manages program implementation and industry-academia collaboration.',
+    // description: 'Manages program implementation and industry-academia collaboration.',
     linkedin:"https://www.linkedin.com/in/leelakrishnan-ethiraj-80376219b/",
   },
 ];
@@ -249,7 +249,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold text-accent"><a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">{member.name}</a></h3>
                 <p className="text-accent mb-2">{member.role}</p>
-                <p className="text-accent/70 text-sm">{member.description}</p>
+                {/* <p className="text-accent/70 text-sm">{member.description}</p> */}
               </div>
             ))}
           </div>
@@ -284,7 +284,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold text-secondary"><a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">{member.name}</a></h3>
                 <p className="text-accent mb-2">{member.role}</p>
-                <p className="text-secondary/70 text-sm">{member.description}</p>
+                {/* <p className="text-secondary/70 text-sm">{member.description}</p> */}
               </div>
             ))}
           </div>
@@ -319,7 +319,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold text-accent"><a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">{member.name}</a></h3>
                 <p className="text-accent mb-2">{member.role}</p>
-                <p className="text-accent/70 text-sm">{member.description}</p>
+                {/* <p className="text-accent/70 text-sm">{member.description}</p> */}
               </div>
             ))}
           </div>

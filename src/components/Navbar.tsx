@@ -29,16 +29,16 @@ const navItems = [
     href: '/events',
     dropdown: [
       { name: 'Symposium on battery materials and manufacturing at TU', href: '/events/symposium' },
-      { name: '⁠Global industry networking at VIT', href: '/events/networking' },
+      { name: 'Global industry networking at VIT', href: '/events/networking' },
     ],
   },
   {
     name: 'Portal',
     href: '/portal',
-    dropdown: [
-      { name: 'Contribution Portal', href: '/portal' },
-      // { name: 'Email Configuration', href: '/admin/config' },
-    ],
+    // dropdown: [
+    //   { name: 'Contribution Portal', href: '/portal' },
+    //   // { name: 'Email Configuration', href: '/admin/config' },
+    // ],
   },
 ];
 
