@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import { FiBook, FiUsers, FiCalendar, FiAward } from 'react-icons/fi';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // VIT Faculty Team
 const vitFacultyTeam = [
@@ -158,11 +159,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="relative p-8 rounded-lg shadow-lg overflow-hidden">
               <div className="absolute inset-0 z-0">
-                <img
+                {/* <img
                   src="/images/mission.avif"
                   alt="Electronics background"
                   className="w-full h-full object-cover opacity-60"
-                />
+                /> */}
+              <Image src="/images/mission.avif" alt="Electronics background" className="w-full h-full object-cover opacity-60" />
               </div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-black mb-4">Mission</h3>
@@ -189,11 +191,12 @@ export default function Home() {
 
             <div className="relative p-8 rounded-lg shadow-lg overflow-hidden">
               <div className="absolute inset-0 z-0">
-                <img
+                {/* <img
                   src="/images/vision.webp"
                   alt="Technology background"
                   className="w-full h-full object-cover opacity-60"
-                />
+                /> */}
+              <Image src="/images/vision.webp" alt="Technology background" className="w-full h-full object-cover opacity-60" />
               </div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-black mb-4">Vision</h3>

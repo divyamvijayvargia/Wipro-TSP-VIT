@@ -189,7 +189,8 @@ export default function FacultyDevelopmentProgram() {
                     </ul>
                     
                     <button
-                      onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
+                      // onClick={() => document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => window.open('https://www.tickettailor.com/events/teessideuniversity/1663467?ref=sb_linkedin', '_blank')}
                       className="mt-4 px-4 py-2 text-sm font-medium text-primary bg-accent rounded-md hover:bg-accent/90 transition-colors"
                     >
                       Apply Now
@@ -284,7 +285,8 @@ export default function FacultyDevelopmentProgram() {
               </div>
               <div className="md:col-span-2 flex justify-end">
                 <button
-                  type="submit"
+                  // type="submit"
+                  onClick={() => window.open('https://www.tickettailor.com/events/teessideuniversity/1663467?ref=sb_linkedin', '_blank')}
                   className="px-6 py-3 bg-accent text-primary rounded-md hover:bg-accent/90 transition-colors"
                 >
                   Submit Application
