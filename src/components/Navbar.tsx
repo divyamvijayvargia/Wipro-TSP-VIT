@@ -6,39 +6,73 @@ import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 import { Transition } from '@headlessui/react';
 
+// const navItems = [
+//   {
+//     name: 'Events at TU',
+//     href: '/faculty-development',
+//     dropdown: [
+//       { name: 'Global faculty development programme at TU', href: '/faculty-development/program' },
+//       { name: 'Module/ subject development on battery materials and manufacturing', href: '/faculty-development/module-development' },
+//       { name: 'Module Delivery at TU and VIT', href: '/faculty-development/module-delivery' },
+//     ],
+//   },
+//   {
+//     name: 'Events at VIT',
+//     href: '/courses-workshops',
+//     dropdown: [
+//       { name: 'Value added course at VIT', href: '/courses-workshops/value-added' },
+//       { name: 'Industrial workshops at Wipro', href: '/courses-workshops/industrial' },
+//     ],
+//   },
+//   {
+//     name: 'Events at wipro',
+//     href: '/events',
+//     dropdown: [
+//       { name: 'Symposium on battery materials and manufacturing at TU', href: '/events/symposium' },
+//       { name: 'Global industry networking at VIT', href: '/events/networking' },
+//     ],
+//   },
+//   {
+//     name: 'Portal',
+//     href: '/portal',
+//     // dropdown: [
+//     //   { name: 'Contribution Portal', href: '/portal' },
+//     //   // { name: 'Email Configuration', href: '/admin/config' },
+//     // ],
+//   },
+// ];
+
 const navItems = [
   {
-    name: 'Faculty Development',
+    name: 'Events at TU',
     href: '/faculty-development',
     dropdown: [
-      { name: 'Global faculty development programme at TU', href: '/faculty-development/program' },
-      { name: 'Module/ subject development on battery materials and manufacturing', href: '/faculty-development/module-development' },
-      { name: 'Module Delivery at TU and VIT', href: '/faculty-development/module-delivery' },
+      { name: 'Global faculty development programme', href: '/faculty-development/program' },
+      { name: 'Technical symposium', href: '/events/symposium' },
     ],
   },
   {
-    name: 'Courses & Workshops',
+    name: 'Events at VIT',
     href: '/courses-workshops',
     dropdown: [
-      { name: 'Value added course at VIT', href: '/courses-workshops/value-added' },
-      { name: 'Industrial workshops at Wipro', href: '/courses-workshops/industrial' },
+      { name: 'Value added course', href: '/courses-workshops/value-added' },
+      { name: 'Global industry networking', href: '/events/networking' },
     ],
   },
   {
-    name: 'Events',
-    href: '/events',
-    dropdown: [
-      { name: 'Symposium on battery materials and manufacturing at TU', href: '/events/symposium' },
-      { name: 'Global industry networking at VIT', href: '/events/networking' },
-    ],
+    name: 'Events at Wipro',
+    href: '/courses-workshops/industrial',
+    // dropdown: [
+    //   { name: 'Industrial workshops', href: '/courses-workshops/industrial' },
+    // ],
+  },
+  {
+    name: 'Module development',
+    href: '/faculty-development/module-development',
   },
   {
     name: 'Portal',
     href: '/portal',
-    // dropdown: [
-    //   { name: 'Contribution Portal', href: '/portal' },
-    //   // { name: 'Email Configuration', href: '/admin/config' },
-    // ],
   },
 ];
 

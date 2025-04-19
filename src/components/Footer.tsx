@@ -120,18 +120,23 @@ export default function Footer() {
               <li className="flex items-start">
                 <FiMapPin className="h-5 w-5 mr-3 mt-1 text-primary/80" />
                 <span className="text-primary/80">
-                  619, S-Block<br />
-                  Men&apos;s Hostel<br />
-                  Vellore, Tamil Nadu
+                  Stephenson Building<br />
+                  Teesside University<br />
+                  Middlesbrough, TS1 3BX
                 </span>
               </li>
               <li className="flex items-center">
                 <FiPhone className="h-5 w-5 mr-3 text-primary/80" />
-                <span className="text-primary/80">+91 7412019022</span>
+                <span className="text-primary/80">‪+44-1642 342411‬</span>
               </li>
-              <li className="flex items-center">
-                <FiMail className="h-5 w-5 mr-3 text-primary/80" />
-                <span className="text-primary/80">divyamvijayvargia25@gmail.com</span>
+              <li className="flex items-start">
+                <FiMail className="h-5 w-5 mr-3 mt-1 text-primary/80" />
+                <div className="text-primary/80">
+                  <div><a href="mailto:J.arackalnarayanan@tees.ac.uk">J.arackalnarayanan@tees.ac.uk</a></div>
+                  <div><a href="mailto:P.ushasree@tees.ac.uk">P.ushasree@tees.ac.uk</a></div>
+                  <div><a href="mailto:cprasad.mohanty@vit.ac.in">cprasad.mohanty@vit.ac.in</a></div>
+                  <div><a href="mailto:akshatha.dayananda@wipro.com">akshatha.dayananda@wipro.com</a></div>
+                </div>
               </li>
             </ul>
           </div>
@@ -139,15 +144,15 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-primary/20">
           <p className="text-primary/80 text-left">
-          Designed and Developed with ❤️ by <a href="https://www.linkedin.com/in/divyamvijayvargia/" target="_blank" rel="noopener noreferrer" className="underline"><b>Divyam Vijayvargia</b></a>
+            Designed and Developed with ❤️ by <a href="https://www.linkedin.com/in/divyamvijayvargia/" target="_blank" rel="noopener noreferrer" className="underline"><b>Divyam Vijayvargia</b></a>
           </p>
           <p className="text-primary/80 text-center">
             &copy; {currentYear} Educational Portal. All rights reserved.
           </p>
           <p className="text-primary/80 text-right">
-            <b>divyamvijayvargia25@gmail.com</b> 
+            <b>divyamvijayvargia25@gmail.com</b>
             {/* and <a href="https://portfolio-website-lac-ten.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline"><b>portfolio</b></a> */}
-          </p> 
+          </p>
         </div>
       </div>
     </footer>
