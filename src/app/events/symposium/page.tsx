@@ -535,7 +535,7 @@ export default function ComingSoon() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            We're currently working on this page. Please check back later for updates.
+            We&apos;re currently working on this page. Please check back later for updates.
           </motion.p>
           
           <motion.div
